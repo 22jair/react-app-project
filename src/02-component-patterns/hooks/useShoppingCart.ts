@@ -10,15 +10,15 @@ export const useShoppingCart = () => {
 
     const productInCart:ProductInCart = shoppingCart[product.id] || {...product, count: 0}
 
-    // Add product or  remove product
-    if(Math.max(productInCart.count + count, 0) > 0) {
-      productInCart.count += count
-      setShoppingCart({...shoppingCart, [product.id]: productInCart})
+    console.log("COUNT", count)
 
-    }else if(Math.max(productInCart.count + count, 0) === 0) {
+    if(count === 0) {
       const { [product.id]: toDelete, ...rest } = shoppingCart
       setShoppingCart(rest)
-    }        
+    }else{
+      setShoppingCart({...shoppingCart, [product.id]: { ...productInCart, count }})
+    }
+                
   }
 
   return {
