@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Product, ProductInCart } from '../interfaces/interface'
 
 export const useShoppingCart = () => {
